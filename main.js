@@ -14,7 +14,8 @@ var priceSum = priceArray.reduce(sum)
 var priceAverage = priceSum / priceLength
 var roundedAverage = priceAverage.toFixed(2)
 
-// console.log("The average price is $" + roundedAverage)
+// Answer Print //
+console.log("The average price is $" + roundedAverage)
 
 
 
@@ -33,7 +34,7 @@ function eachFilter(item) {
   console.log(item.title)
 }
 // Answer Print //
-// var priceFinal = filteredItems.forEach(eachFilter)
+var priceFinal = filteredItems.forEach(eachFilter)
 
 
 
@@ -50,7 +51,8 @@ var currencyFilter = items.filter(currencyCode)
 function eachFilter(item) {
   console.log(item.title)
 }
-// var gbpFinal = currencyFilter.forEach(eachFilter)
+// Answer Print //
+var gbpFinal = currencyFilter.forEach(eachFilter)
 
 
 
@@ -59,37 +61,84 @@ function eachFilter(item) {
 
 
 //-------------// Show items made of wood //-----------------//
+// map items with materials
+function hasMaterials(item){
+  return item.materials.indexOf("wood") != -1;
+}
+var hasMaterialsArray = items.filter(hasMaterials)
+// Filter by Title //
+function eachTitles(item){
+  console.log(item.title)
+}
 
-//
-// function forMaterials(item){
-//   console.log(item.materials);
-// }
-// var materialsUsed = items.forEach(forMaterials)
-//
-// function forWood(materials){
-//   return
-// }
-//
-// var woodUsed = materialsUsed.filter(forWood)
-//
-
+// Answer Print //
+hasMaterialsArray.forEach(eachTitles)
 
 
 
 
 
+//-----------------// Show items made of 8+ materials //-----------------//
+// map items with materials more than 7 //
+function withMaterials(item){
+  return item.materials.length > 7;
+}
+var withMaterialsArray = items.filter(withMaterials)
 
-// Show items made of 8+ materials //
+// filter by Title //
+function eachName(item){
+  console.log(item.title)
+}
+// Answer Print //
+withMaterialsArray.forEach(eachName);
 
 
-// Calculate how many items are made by their sellers //
+// items.filter(withMaterials).forEach(eachName);
+
+
+
+
+
+
+
+
+//--------------// Calculate how many items are made by their sellers //------------//
+// map items based on who made them //
 function whoMade(items){
  return items.who_made;
 }
+// filter by i_did from who_made //
 var whoMadeArray = items.map(whoMade)
-
 function iDid(items){
   return items.who_made === "i_did";
 }
 var iMade = items.filter(iDid)
-console.log(iMade)
+// Count the amount of i_did //
+var countedIMade = iMade.length;
+// Answer Print //
+console.log(countedIMade)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function demo() {
+  return 2;
+}
+
+demo();
+
+var sample = demo();
